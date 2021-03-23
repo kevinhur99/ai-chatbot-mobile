@@ -25,6 +25,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:padding="10dp"
+        android:fontFamily="sans-serif"
         android:hint="Enter your message"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnSend"

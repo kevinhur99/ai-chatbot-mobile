@@ -5,32 +5,35 @@
     android:padding="10dp"
     android:layout_height="wrap_content">
 
-  <TextView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:padding="5dp"
-      android:textColor="@android:color/white"
-      android:textSize="20sp"
-      android:minHeight="50dp"
-      android:id="@+id/message_send"
-      android:layout_marginBottom="5dp"
-      android:background="@drawable/bg_chat_send"
-      android:layout_marginStart="30dp"
-      >
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="25px"
+            android:paddingVertical="20px"
+            android:textColor="@android:color/white"
+            android:fontFamily="sans-serif"
+            android:layout_marginBottom="5dp"
+            android:textSize="20sp"
+            android:id="@+id/message_send"
+            android:background="@drawable/message_bubble_send"
+            android:layout_marginEnd="10dp"
+            android:layout_gravity="right"
+    >
 
-  </TextView>
-
-  <TextView
-      android:layout_width="match_parent"
+    </TextView>
+    <TextView
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:padding="5dp"
-      android:minHeight="50dp"
+      android:paddingHorizontal="25px"
+      android:paddingVertical="20px"
       android:textColor="@android:color/black"
+      android:fontFamily="sans-serif"
       android:layout_marginBottom="5dp"
       android:textSize="20sp"
       android:id="@+id/message_receive"
-      android:background="@drawable/bg_chat_receive"
+      android:background="@drawable/message_bubble_recieve"
       android:layout_marginEnd="30dp"
+      android:layout_gravity="left"
       >
 
   </TextView>
