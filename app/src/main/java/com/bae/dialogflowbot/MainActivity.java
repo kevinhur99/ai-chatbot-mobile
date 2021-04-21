@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements BotReply {
   List<Message> messageList = new ArrayList<>();
   EditText editMessage;
   ImageButton btnSend;
+  ImageButton btnReset;
 
   //dialogFlow
   private SessionsClient sessionsClient;
@@ -45,10 +46,22 @@ public class MainActivity extends AppCompatActivity implements BotReply {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    setUp();
+  }
+
+  private void reset() {
+    sessionsClient.shutdownNow();
+    uuid = UUID.randomUUID().toString();
+    messageList = new ArrayList<>();
+    setUp();
+  }
+
+  private void setUp() {
     setContentView(R.layout.activity_main);
     chatView = findViewById(R.id.chatView);
     editMessage = findViewById(R.id.editMessage);
     btnSend = findViewById(R.id.btnSend);
+    btnReset = findViewById(R.id.btnReset);
 
     chatAdapter = new ChatAdapter(messageList, this);
     chatView.setAdapter(chatAdapter);
@@ -62,10 +75,18 @@ public class MainActivity extends AppCompatActivity implements BotReply {
           sendMessageToBot(message);
           Objects.requireNonNull(chatView.getAdapter()).notifyDataSetChanged();
           Objects.requireNonNull(chatView.getLayoutManager())
-              .scrollToPosition(messageList.size() - 1);
+                  .scrollToPosition(messageList.size() - 1);
         } else {
           Toast.makeText(MainActivity.this, "Please enter text!", Toast.LENGTH_SHORT).show();
         }
+      }
+    });
+
+    btnReset.setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View view) {
+        reset();
+        setUpBot();
+
       }
     });
 
